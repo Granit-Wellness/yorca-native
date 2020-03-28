@@ -1,9 +1,8 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { AppRegistry } from "react-native";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
-import { SplashScreen } from "expo";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,7 +14,7 @@ import useLinking from "./navigation/useLinking";
 
 const Stack = createStackNavigator();
 const client = new ApolloClient({
-  uri: environmentURI()
+  uri: `${environmentURI()}/graphql`
 });
 
 export default function App(props) {
@@ -25,11 +24,9 @@ export default function App(props) {
   const { getInitialState } = useLinking(containerRef);
 
   // Load any resources or data that we need prior to rendering the app
-  React.useEffect(() => {
+  useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
-        SplashScreen.preventAutoHide();
-
         // Load our initial navigation state
         setInitialNavigationState(await getInitialState());
 
@@ -43,7 +40,6 @@ export default function App(props) {
         console.warn(e);
       } finally {
         setLoadingComplete(true);
-        SplashScreen.hide();
       }
     }
 

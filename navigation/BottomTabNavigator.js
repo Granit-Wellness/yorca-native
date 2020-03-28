@@ -45,7 +45,7 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case "Home":
-      return "Drug education";
+      return "Find a drug!";
     case "Links":
       return "Links to learn more";
   }
