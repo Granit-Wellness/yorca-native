@@ -9,7 +9,7 @@ export default function(containerRef) {
         path: "root",
         screens: {
           Drugs: "drugs",
-          Links: "links",
+          Blog: "blog",
           Resources: "resources",
           Settings: "settings"
         }

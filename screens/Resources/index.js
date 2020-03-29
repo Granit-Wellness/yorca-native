@@ -1,7 +1,6 @@
 import React from "react";
 import { Text, StyleSheet, Linking, ScrollView, View } from "react-native";
 import { Avatar, Card } from "react-native-elements";
-import classnames from "classnames";
 
 const RESOURCES = [
   {
@@ -35,7 +34,6 @@ const RESOURCES = [
 export default () => {
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.resourcesHeader}>Treatment Centers Near You</Text>
       {RESOURCES.map((resource, idx) => (
         <Card key={idx} style={styles.slide}>
           <View style={styles.header}>
@@ -74,13 +72,6 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
 
-  resourcesHeader: {
-    fontSize: 24,
-    paddingLeft: 5,
-    alignSelf: "center",
-    paddingTop: 10
-  },
-
   resourcesLink: {
     fontSize: 18,
     color: "blue"
@@ -102,7 +93,6 @@ const styles = StyleSheet.create({
   },
 
   addressContainer: {
-    fontSize: 18,
     marginTop: 5
   },
 
