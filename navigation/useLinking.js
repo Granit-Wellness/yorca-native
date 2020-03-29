@@ -10,6 +10,7 @@ export default function(containerRef) {
         screens: {
           Drugs: "drugs",
           Links: "links",
+          Resources: "resources",
           Settings: "settings"
         }
       }
