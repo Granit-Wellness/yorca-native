@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Platform, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
-import { ListItem } from "react-native-elements";
+import { ListItem, Icon } from "react-native-elements";
 import { useQuery } from "@apollo/react-hooks";
 
 import gql from "graphql-tag";
@@ -43,7 +43,7 @@ export default function Drugs() {
               key={drug.id}
               title={drug.name}
               bottomDivider
-              chevron
+              chevron={<Icon name="chevron-right" size={24} />}
             />
           ))}
         </View>
