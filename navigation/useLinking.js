@@ -1,7 +1,7 @@
 import { useLinking } from "@react-navigation/native";
 import { Linking } from "expo";
 
-export default function(containerRef) {
+export default function (containerRef) {
   return useLinking(containerRef, {
     prefixes: [Linking.makeUrl("/")],
     config: {
@@ -11,9 +11,15 @@ export default function(containerRef) {
           Drugs: "drugs",
           Blog: "blog",
           Resources: "resources",
-          Settings: "settings"
-        }
-      }
-    }
+          Settings: "settings",
+        },
+      },
+      Drug: {
+        path: "drug",
+        screens: {
+          Drug: "drugs/:id",
+        },
+      },
+    },
   });
 }

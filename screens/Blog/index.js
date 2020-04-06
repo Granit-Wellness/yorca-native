@@ -10,7 +10,7 @@ import gql from "graphql-tag";
 
 const BODY_LENGTH = 150;
 
-const truncateBody = text => {
+const truncateBody = (text) => {
   return text.slice(0, BODY_LENGTH) + "...";
 };
 
@@ -54,7 +54,7 @@ export default function Blog() {
         contentContainerStyle={styles.contentContainer}
       >
         <View style={styles.postList}>
-          {posts.map(post => {
+          {posts.map((post) => {
             const body =
               post.body.length <= BODY_LENGTH
                 ? post.body
@@ -86,34 +86,34 @@ export default function Blog() {
 }
 
 Blog.navigationOptions = {
-  header: null
+  header: null,
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
 
   contentContainer: {
-    padding: 0
+    padding: 0,
   },
 
   postList: {
     paddingLeft: 16,
     paddingRight: 16,
-    marginTop: 16
+    marginTop: 16,
   },
 
   postTitle: {
     fontSize: 18,
     lineHeight: 20,
     fontWeight: "600",
-    marginBottom: 10
+    marginBottom: 10,
   },
 
   postContainer: {
-    marginBottom: 20
+    marginBottom: 20,
   },
 
   splash: {
@@ -122,30 +122,30 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomStyle: "solid",
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
 
   postBody: {
-    color: "rgba(0,0,0,.54)"
+    color: "rgba(0,0,0,.54)",
   },
 
   postUserName: {
     color: "rgba(0,0,0,.84)",
     fontWeight: "400",
-    fontSize: 15
+    fontSize: 15,
   },
 
   postTime: {
     color: "rgba(0,0,0,.54)",
     fontSize: 15,
-    fontWeight: "400"
+    fontWeight: "400",
   },
 
   userDetail: {
     marginTop: 12,
     display: "flex",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   userAvatar: {
@@ -154,6 +154,6 @@ const styles = StyleSheet.create({
     width: 36,
     borderRadius: "50%",
     boxShadow:
-      "0 0 0 1px rgba(8, 56, 100, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05)"
-  }
+      "0 0 0 1px rgba(8, 56, 100, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05)",
+  },
 });

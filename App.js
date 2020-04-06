@@ -10,11 +10,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { environmentURI } from "./client/helpers";
 
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
+import Drug from "./screens/Drug";
 import useLinking from "./navigation/useLinking";
 
 const Stack = createStackNavigator();
 const client = new ApolloClient({
-  uri: `${environmentURI()}/graphql`
+  uri: `${environmentURI()}/graphql`,
 });
 
 export default function App(props) {
@@ -33,7 +34,7 @@ export default function App(props) {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
-          "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf")
+          "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
@@ -59,6 +60,7 @@ export default function App(props) {
           >
             <Stack.Navigator>
               <Stack.Screen name="Root" component={BottomTabNavigator} />
+              <Stack.Screen name="Drug" component={Drug} />
             </Stack.Navigator>
           </NavigationContainer>
         </View>
@@ -70,8 +72,8 @@ export default function App(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
-  }
+    backgroundColor: "#fff",
+  },
 });
 
 AppRegistry.registerComponent("Yorca", () => App);

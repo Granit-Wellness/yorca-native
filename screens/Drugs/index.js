@@ -17,7 +17,7 @@ const query = gql`
   }
 `;
 
-export default function Drugs() {
+export default function Drugs({ navigation }) {
   const { data = {}, loading } = useQuery(query);
 
   if (loading) {
@@ -33,12 +33,17 @@ export default function Drugs() {
         contentContainerStyle={styles.contentContainer}
       >
         <View>
-          {drugs.map(drug => (
+          {drugs.map((drug) => (
             <ListItem
               leftAvatar={{
                 rounded: true,
-                source: { uri: drug.avatarUri }
+                source: { uri: drug.avatarUri },
               }}
+              onPress={() =>
+                navigation.navigate("Drug", {
+                  id: drug.id,
+                })
+              }
               titleStyle={styles.listTitle}
               key={drug.id}
               title={drug.name}
@@ -53,20 +58,20 @@ export default function Drugs() {
 }
 
 Drugs.navigationOptions = {
-  header: null
+  header: null,
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
 
   contentContainer: {
-    paddingTop: 0
+    paddingTop: 0,
   },
 
   listTitle: {
-    marginLeft: 8
-  }
+    marginLeft: 8,
+  },
 });
